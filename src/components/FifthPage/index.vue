@@ -5,7 +5,7 @@
       <br />
       在凌晨
       <span class="value">
-        {{ hour }}
+        5
       </span>
       点
     </div>

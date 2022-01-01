@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="padding-top: 15vh" class="a">
-      这一年 我们说过最多的词是
+      这一年 我们说过的词语 
 
       <span style="font-size: 5vw" class="value"> {{ content }} </span>
       居然有

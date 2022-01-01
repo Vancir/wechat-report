@@ -61,12 +61,13 @@ export default {
       };
     },
     isMobile() {
-      return (
-        /AppleWebKit.*Mobile/i.test(navigator.userAgent) ||
-        /MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(
-          navigator.userAgent
-        )
-      );
+      return true;
+      // return (
+      //   /AppleWebKit.*Mobile/i.test(navigator.userAgent) ||
+      //   /MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(
+      //     navigator.userAgent
+      //   )
+      // );
     },
   },
   watch: {

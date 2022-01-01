@@ -3,11 +3,12 @@ import functools
 import pymysql
 import jieba
 import json
+from rich.progress import track
 
 conn = pymysql.connect(
     host='localhost',
     user='root',
-    password='000000',
+    password='123456',
     db='test',
     charset='utf8mb4',
     port=3306)
@@ -22,17 +23,23 @@ result = {}
 # 获得最长的一句话
 max_item = None
 for item in r:
-    content = item[3]
-    if (max_item is None or len(content) > len(max_item[3])) and content.find('http') == -1:
-        max_item = item
+    try:
+        content = item[2]
+        if (max_item is None or len(content) > len(max_item[2])) and content.find('http') == -1 and "耿元" not in content and "合拍" not in content and "破坏" not in content:
+            max_item = item
+    except:
+        print("[x]", item)
 print(max_item)
 
 # # 进行分词
 word_arr = []
-for item in r:
-    content = item[3]
-    seg_list = jieba.cut(content)
-    word_arr = word_arr + list(seg_list)
+for item in track(r):
+    try:
+        content = item[2]
+        seg_list = jieba.cut(content)
+        word_arr = word_arr + list(seg_list)
+    except:
+        print("[xx]", item)
 word_count_map = {}
 for word in word_arr:
     if word in word_count_map:
